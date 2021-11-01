@@ -2,7 +2,7 @@
 :root {
   --Very-dark-blue: hsl(233, 47%, 7%);
   --Dark-desaturated-blue: hsl(244, 38%, 16%);
-  --Soft-violet: hsl(277, 64%, 61%);
+  --Soft-violet: rgb(170, 92, 219);
   --Slightly-transparent-white: hsla(0, 0%, 100%, 0.75); /* (main paragraph) */
   --Slightly-transparent-white-stat: hsla(
     0,
@@ -22,4 +22,118 @@
 body {
   font-size: 15px;
   font-family: "Inter", sans-serif;
+  background-color: var(--Very-dark-blue);
+  color: white;
+}
+
+/* Card Styling */
+.card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 85%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--Dark-desaturated-blue);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+/* Mobile First */
+.card .image {
+  background-image: url(../images/image-header-mobile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 233px;
+  position: relative;
+}
+
+.card .image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(148, 0, 211, 0.5);
+}
+
+.card .content {
+  padding: 25px;
+  text-align: center;
+}
+
+.card .content > h1 {
+  margin-top: 15px;
+  font-size: 1.7em;
+}
+
+.card .content > h1 span {
+  color: var(--Soft-violet);
+}
+
+.card .content > p {
+  line-height: 1.7;
+  color: var(--Slightly-transparent-white);
+  margin-bottom: 25px;
+}
+
+.card .content .stats .stat {
+  margin: 25px;
+}
+
+.card .content .stats .stat p:first-of-type {
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card .content .stats .stat p:last-of-type {
+  text-transform: uppercase;
+  color: var(--Slightly-transparent-white-stat);
+  margin-top: 5px;
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .card {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card .image {
+    order: 1;
+    background-image: url(../images/image-header-desktop.jpg);
+    background-size: cover;
+  }
+
+  .card .content {
+    text-align: left;
+    padding: 50px;
+  }
+
+  .card .content > h1 {
+    font-size: 39px;
+  }
+
+  .card .content .stats {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card .content .stats .stat {
+    margin: 0px;
+  }
+
+  .card .content .stats .stat p:last-of-type {
+    font-size: 12px;
+  }
 }
